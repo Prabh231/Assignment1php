@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #eef3ff;
+    margin: 0;
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    padding: 20px;
+}
+
+.row {
+    margin: 20px 0;
+}
+
+h2 {
+    color: #1e3a8a;
+}
+
+.weather-card {
+    background: white;
+    width: 320px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
