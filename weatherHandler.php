@@ -1,35 +1,33 @@
 <?php
-/**
- * weatherHandler Class
- * Blueprint for executing basic API fetches
- */
-class LessonWeatherHandler {
 
+/**
+ * LessonWeatherHandler Class
+ * Handles weather API requests
+ */
+class LessonWeatherHandler
+{
     private $targetUrl;
     private $securityKey;
 
-    public function __construct($incomingUrl, $incomingKey) {
+    public function __construct($incomingUrl, $incomingKey)
+    {
         $this->targetUrl = $incomingUrl;
         $this->securityKey = $incomingKey;
     }
 
-    /**
-     * Pulls weather dataset from the API
-     */
-    public function fetchCurrentWeather($city = "Toronto") {
-
-        // Construct API URL
-        $endpointUrl = "{$this->targetUrl}?q=" . urlencode($city) .
-                       "&appid={$this->securityKey}&units=metric";
+    public function fetchWeather($selectedCity = "Toronto")
+    {
+        $endpointUrl =
+            "{$this->targetUrl}?q=" .
+            urlencode($selectedCity) .
+            "&appid={$this->securityKey}&units=metric";
 
         $rawJsonString = @file_get_contents($endpointUrl);
 
         if ($rawJsonString === false) {
-            return [];
+            return null;
         }
 
-        $decodedPayload = json_decode($rawJsonString);
-
-        return $decodedPayload ?? [];
+        return json_decode($rawJsonString);
     }
 }

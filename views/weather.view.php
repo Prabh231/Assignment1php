@@ -1,21 +1,79 @@
-<?php if (!empty($lessonWeatherData) && isset($lessonWeatherData->main)): ?>
+<!doctype html>
+<html lang="en">
+<head>
+    ...
+</head>
+<body>
 
-    <div class="weather-card">
+<main class="container">
 
-        <h3><?php echo $lessonWeatherData->name; ?></h3>
+    <section class="row">
+        <h2>
+            Weather Report -
+            <?php echo htmlspecialchars($lessonActiveCity); ?>
+        </h2>
+    </section>
 
-        <p> Temperature: <?php echo $lessonWeatherData->main->temp; ?> °C</p>
+    <section class="row">
 
-        <p> Weather: <?php echo $lessonWeatherData->weather[0]->description; ?></p>
+        <form method="GET">
+            <input
+                type="text"
+                name="city"
+                placeholder="Enter City"
+                required
+            >
+            <button type="submit">Search</button>
+        </form>
 
-        <p> Humidity: <?php echo $lessonWeatherData->main->humidity; ?>%</p>
+    </section>
 
-        <p> Wind: <?php echo $lessonWeatherData->wind->speed; ?> m/s</p>
+    <section class="row">
 
-    </div>
+    <?php if($lessonWeatherData && isset($lessonWeatherData->main)): ?>
 
-<?php else: ?>
+        <div class="weather-card">
 
-    <p>Weather data not available.</p>
+            <h3>
+                <?php echo htmlspecialchars($lessonWeatherData->name); ?>
+            </h3>
 
-<?php endif; ?>
+            <p>
+                Temperature:
+                <?php echo htmlspecialchars($lessonWeatherData->main->temp); ?> °C
+            </p>
+
+            <p>
+                Feels Like:
+                <?php echo htmlspecialchars($lessonWeatherData->main->feels_like); ?> °C
+            </p>
+
+            <p>
+                Humidity:
+                <?php echo htmlspecialchars($lessonWeatherData->main->humidity); ?>%
+            </p>
+
+            <p>
+                Weather:
+                <?php echo htmlspecialchars($lessonWeatherData->weather[0]->description); ?>
+            </p>
+
+            <p>
+                Wind Speed:
+                <?php echo htmlspecialchars($lessonWeatherData->wind->speed); ?> m/s
+            </p>
+
+        </div>
+
+    <?php else: ?>
+
+        <p>City not found.</p>
+
+    <?php endif; ?>
+
+    </section>
+
+</main>
+
+</body>
+</html>
