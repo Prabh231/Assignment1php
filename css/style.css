@@ -6,8 +6,8 @@
 
 body{
     font-family:'Segoe UI', Arial, sans-serif;
-    background:#f4f6f9;
-    color:#333;
+    background:linear-gradient(135deg, #74ebd5, #acb6e5);
+    color:#1f2937;
     min-height:100vh;
 }
 
@@ -22,11 +22,10 @@ body{
     margin-bottom:30px;
 }
 
-h1,
-h2{
+h1, h2{
     text-align:center;
     margin-bottom:20px;
-    color:#1e3a8a;
+    color:#0f172a;
 }
 
 form{
@@ -41,14 +40,20 @@ input[type="text"]{
     padding:12px;
     width:250px;
     border:1px solid #ccc;
-    border-radius:8px;
+    border-radius:10px;
     font-size:16px;
+    outline:none;
+}
+
+input[type="text"]:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,0.2);
 }
 
 button{
     padding:12px 20px;
     border:none;
-    border-radius:8px;
+    border-radius:10px;
     background:#2563eb;
     color:#fff;
     cursor:pointer;
@@ -58,40 +63,69 @@ button{
 
 button:hover{
     background:#1d4ed8;
+    transform:translateY(-1px);
 }
 
 .weather-card{
     max-width:500px;
     margin:0 auto;
-    background:#fff;
-    border-radius:15px;
     padding:30px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    border-radius:18px;
+
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
     text-align:center;
+
     position:relative;
     overflow:hidden;
 }
+
 .weather-card::before{
     content:"";
     position:absolute;
-    top:20px;
-    right:20px;
-    width:80px;
-    height:80px;
+    top:15px;
+    right:15px;
+    width:90px;
+    height:90px;
+
     background:url("weather.jpg") no-repeat center/contain;
-    opacity:0.85;
+
+    opacity:0.25;
+    pointer-events:none;
 }
 
 .weather-card h2{
     margin-bottom:20px;
+    font-size:26px;
 }
 
-.weather-card p{
-    margin:12px 0;
+.weather-card dl{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 20px;
+    text-align:left;
+    margin-top:10px;
+}
+
+.weather-card dt{
+    font-weight:600;
+    color:#1e3a8a;
+}
+
+.weather-card dd{
+    margin:0;
+    font-weight:500;
+    color:#111827;
+}
+
+p{
+    text-align:center;
     font-size:18px;
+    color:#374151;
 }
 
-/* Responsive */
 @media (max-width:780px){
 
     .container{
@@ -110,5 +144,9 @@ button:hover{
     button{
         width:100%;
         max-width:250px;
+    }
+
+    .weather-card dl{
+        grid-template-columns:1fr;
     }
 }
