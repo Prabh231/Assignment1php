@@ -22,6 +22,6 @@ class weatherHandler
         if ($rawJsonString === false) {
             return [];
         }
-        return json_decode($rawJsonString) ?? [];
+        return json_decode($rawJsonString);
     }
 }
