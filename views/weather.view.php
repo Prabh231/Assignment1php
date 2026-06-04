@@ -34,38 +34,42 @@
 
     <?php if($lessonWeatherData && isset($lessonWeatherData->main)): ?>
 
-        <div class="weather-card">
+        <article class="weather-card">
 
-            <h3>
-                <?php echo htmlspecialchars($lessonWeatherData->name); ?>
-            </h3>
+    <header>
+        <h2>
+            <?php echo htmlspecialchars($lessonWeatherData->name); ?>
+        </h2>
+    </header>
 
-            <p>
-                Temperature:
-                <?php echo htmlspecialchars($lessonWeatherData->main->temp); ?> °C
-            </p>
+    <dl>
+        <dt>Temperature</dt>
+        <dd>
+            <?php echo htmlspecialchars($lessonWeatherData->main->temp); ?> °C
+        </dd>
 
-            <p>
-                Feels Like:
-                <?php echo htmlspecialchars($lessonWeatherData->main->feels_like); ?> °C
-            </p>
+        <dt>Feels Like</dt>
+        <dd>
+            <?php echo htmlspecialchars($lessonWeatherData->main->feels_like); ?> °C
+        </dd>
 
-            <p>
-                Humidity:
-                <?php echo htmlspecialchars($lessonWeatherData->main->humidity); ?>%
-            </p>
+        <dt>Humidity</dt>
+        <dd>
+            <?php echo htmlspecialchars($lessonWeatherData->main->humidity); ?>%
+        </dd>
 
-            <p>
-                Weather:
-                <?php echo htmlspecialchars($lessonWeatherData->weather[0]->description); ?>
-            </p>
+        <dt>Weather</dt>
+        <dd>
+            <?php echo htmlspecialchars($lessonWeatherData->weather[0]->description); ?>
+        </dd>
 
-            <p>
-                Wind Speed:
-                <?php echo htmlspecialchars($lessonWeatherData->wind->speed); ?> m/s
-            </p>
+        <dt>Wind Speed</dt>
+        <dd>
+            <?php echo htmlspecialchars($lessonWeatherData->wind->speed); ?> m/s
+        </dd>
+    </dl>
 
-        </div>
+</article>
 
     <?php else: ?>
 

@@ -68,6 +68,18 @@ button:hover{
     padding:30px;
     box-shadow:0 4px 12px rgba(0,0,0,0.1);
     text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+.weather-card::before{
+    content:"";
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:80px;
+    height:80px;
+    background:url("weather.jpg") no-repeat center/contain;
+    opacity:0.85;
 }
 
 .weather-card h2{
