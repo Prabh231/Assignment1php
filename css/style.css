@@ -82,19 +82,6 @@ button:hover{
     overflow:hidden;
 }
 
-.weather-card::before{
-    content:"";
-    position:absolute;
-    top:15px;
-    right:15px;
-    width:90px;
-    height:90px;
-
-    background:url("weather.jpg") no-repeat center/contain;
-
-    opacity:0.25;
-    pointer-events:none;
-}
 
 .weather-card h2{
     margin-bottom:20px;
